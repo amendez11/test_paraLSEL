@@ -1,1 +1,1 @@
-docker run -it -v $PWD/..:/project throwtheswitch/madsciencelab
+docker run -it -v $PWD/..:/project ceedling
