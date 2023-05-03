@@ -2,8 +2,45 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Debug linux",
+            "type": "cppdbg",
+            "request": "launch",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "linux": {
+                "name": "Debug PC -linux",
+                "type": "cppdbg",
+                "request": "launch",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb",
+                "program": "${workspaceFolder}/output/${workspaceFolderBasename}"
+              },
+              "osx": {
+                "name": "Debug PC -mac",
+                "type": "cppdbg",
+                "request": "launch",
+                "MIMode": "lldb",
+                "miDebuggerPath": "/Users/xxxxx/.vscode/extensions/ms-vscode.cpptools-1.13.8-darwin-x64/debugAdapters/lldb-mi/bin/lldb-mi",
+                "program": "${workspaceFolder}/output/${workspaceFolderBasename}"
+              },
+              "windows": {
+                "name": "Debug PC -win",
+                "type": "cppdbg",
+                "request": "launch",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe",
+                "program": "${workspaceFolder}/output/${workspaceFolderBasename}.exe"
+              },
+              "preLaunchTask": "Build Linux PC"
+        },        
+        {
             "name": "Ceedling - Debug test",
-            "type": "cppdbg", 
+            "type": "cppdbg",
             "request": "launch",
             "args": [],
             "stopAtEntry": false,
@@ -20,6 +57,35 @@
                     "ignoreFailures": true
                 }
             ]
+        },        
+        {
+            "name": "Debug device STM32F411RE",
+            "type": "cortex-debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceFolder}/output/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "runToEntryPoint": "main",
+            "servertype": "openocd",
+            "device": "STM32F411RE",
+            //"serverpath": "C:/Program Files/openocd/bin/openocd.exe", // If you are not using Windows, you must remove this line
+            "configFiles": [
+            "port/nucleo_stm32f411re/openocd.cfg"
+            ],
+            "preLaunchTask": "Clean & Re-Build NUCLEO_STM32F411RE",
+            "svdFile": "../../svd/STM32F411.svd",
+            "swoConfig": {
+                "enabled": true,
+                "cpuFrequency": 16000000,
+                "swoFrequency": 2000000,
+                "source": "probe",
+                "decoders": [
+                    {
+                    "type": "console",
+                    "label": "ITM",
+                    "port": 0
+                    }
+                ]
+            },
         }
     ]
 }

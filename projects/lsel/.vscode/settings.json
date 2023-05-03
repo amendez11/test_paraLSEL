@@ -6,5 +6,6 @@
         "mode": "gcc"
     },
     "ceedlingExplorer.debugConfiguration": "Ceedling - Debug test",
-    "ceedlingExplorer.projectPath": "./ceedling"
+    "ceedlingExplorer.projectPath": "./ceedling",
+    "*.port": "makefile"
 }
