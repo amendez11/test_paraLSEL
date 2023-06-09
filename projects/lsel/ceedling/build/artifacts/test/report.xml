@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<TestRun>
+	<FailedTests/>
+	<SuccessfulTests>
+		<Test id="1">
+			<Name>test/test_fsm.c::test_fsm_new_nullWhenNullTransition</Name>
+		</Test>
+		<Test id="2">
+			<Name>test/test_fsm.c::test_fsm_init_falseWhenNullFsm</Name>
+		</Test>
+		<Test id="3">
+			<Name>test/test_fsm.c::test_fsm_init_falseWhenNullTransitions</Name>
+		</Test>
+		<Test id="4">
+			<Name>test/test_fsm.c::test_fsm_new_nullWhenInvalidTransitionTerminator</Name>
+		</Test>
+		<Test id="5">
+			<Name>test/test_fsm.c::test_fsm_init_falseWhenInvalidTransitionTerminator</Name>
+		</Test>
+		<Test id="6">
+			<Name>test/test_fsm.c::test_fsm_new_nullWhenEmptyTransition</Name>
+		</Test>
+		<Test id="7">
+			<Name>test/test_fsm.c::test_fsm_init_falseWhenEmptyTransition</Name>
+		</Test>
+		<Test id="8">
+			<Name>test/test_fsm.c::test_fsm_new_nullWhenInvalidOriginState</Name>
+		</Test>
+		<Test id="9">
+			<Name>test/test_fsm.c::test_fsm_init_falseWhenInvalidOriginState</Name>
+		</Test>
+		<Test id="10">
+			<Name>test/test_fsm.c::test_fsm_new_nullWhenInvalidDestinationState</Name>
+		</Test>
+		<Test id="11">
+			<Name>test/test_fsm.c::test_fsm_init_falseWhenInvalidDestinationState</Name>
+		</Test>
+		<Test id="12">
+			<Name>test/test_fsm.c::test_fsm_new_nonNullWhenNullTransitionCondition</Name>
+		</Test>
+		<Test id="13">
+			<Name>test/test_fsm.c::test_fsm_init_trueWhenNullTransitionCondition</Name>
+		</Test>
+		<Test id="14">
+			<Name>test/test_fsm.c::test_fsm_new_validInitialState</Name>
+		</Test>
+		<Test id="15">
+			<Name>test/test_fsm.c::test_fsm_init_validInitialState</Name>
+		</Test>
+		<Test id="16">
+			<Name>test/test_fsm.c::test_fsm_fire_validTransitionNoCondition</Name>
+		</Test>
+		<Test id="17">
+			<Name>test/test_fsm.c::test_fsm_fire_validTransitionNoOutput</Name>
+		</Test>
+		<Test id="18">
+			<Name>test/test_fsm.c::test_fsm_fire_validTransitionWithOutput</Name>
+		</Test>
+		<Test id="19">
+			<Name>test/test_fsm.c::test_fsm_fire_noTransition</Name>
+		</Test>
+		<Test id="20">
+			<Name>test/test_fsm.c::test_fsm_fire_endState</Name>
+		</Test>
+		<Test id="21">
+			<Name>test/test_fsm.c::test_fsm_memory_full</Name>
+		</Test>
+		<Test id="22">
+			<Name>test/test_fsm.c::test_fsm_fire_onlyCheckCurrentGuard</Name>
+		</Test>
+		<Test id="23">
+			<Name>test/test_fsm.c::test_fsm_concurrent</Name>
+		</Test>
+	</SuccessfulTests>
+	<IgnoredTests/>
+	<Statistics>
+		<Tests>23</Tests>
+		<Ignores>0</Ignores>
+		<FailuresTotal>0</FailuresTotal>
+		<Errors>0</Errors>
+		<Failures>0</Failures>
+	</Statistics>
+</TestRun>

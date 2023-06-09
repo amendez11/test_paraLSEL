@@ -13,9 +13,28 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_fsm_new_nullWhenNullTransition(void);
-extern void test_fsm_nullWhenEmptyTransition(void);
-extern void test_fsm_validTransitionNoOutput(void);
-extern void test_fsm_validTransitionWithOutput(void);
+extern void test_fsm_init_falseWhenNullFsm(void);
+extern void test_fsm_init_falseWhenNullTransitions(void);
+extern void test_fsm_new_nullWhenInvalidTransitionTerminator(void);
+extern void test_fsm_init_falseWhenInvalidTransitionTerminator(void);
+extern void test_fsm_new_nullWhenEmptyTransition(void);
+extern void test_fsm_init_falseWhenEmptyTransition(void);
+extern void test_fsm_new_nullWhenInvalidOriginState(void);
+extern void test_fsm_init_falseWhenInvalidOriginState(void);
+extern void test_fsm_new_nullWhenInvalidDestinationState(void);
+extern void test_fsm_init_falseWhenInvalidDestinationState(void);
+extern void test_fsm_new_nonNullWhenNullTransitionCondition(void);
+extern void test_fsm_init_trueWhenNullTransitionCondition(void);
+extern void test_fsm_new_validInitialState(void);
+extern void test_fsm_init_validInitialState(void);
+extern void test_fsm_fire_validTransitionNoCondition(void);
+extern void test_fsm_fire_validTransitionNoOutput(void);
+extern void test_fsm_fire_validTransitionWithOutput(void);
+extern void test_fsm_fire_noTransition(void);
+extern void test_fsm_fire_endState(void);
+extern void test_fsm_memory_full(void);
+extern void test_fsm_fire_onlyCheckCurrentGuard(void);
+extern void test_fsm_concurrent(void);
 
 
 /*=======Mock Management=====*/
@@ -83,10 +102,29 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_fsm.c");
-  run_test(test_fsm_new_nullWhenNullTransition, "test_fsm_new_nullWhenNullTransition", 48);
-  run_test(test_fsm_nullWhenEmptyTransition, "test_fsm_nullWhenEmptyTransition", 57);
-  run_test(test_fsm_validTransitionNoOutput, "test_fsm_validTransitionNoOutput", 69);
-  run_test(test_fsm_validTransitionWithOutput, "test_fsm_validTransitionWithOutput", 89);
+  run_test(test_fsm_new_nullWhenNullTransition, "test_fsm_new_nullWhenNullTransition", 53);
+  run_test(test_fsm_init_falseWhenNullFsm, "test_fsm_init_falseWhenNullFsm", 69);
+  run_test(test_fsm_init_falseWhenNullTransitions, "test_fsm_init_falseWhenNullTransitions", 88);
+  run_test(test_fsm_new_nullWhenInvalidTransitionTerminator, "test_fsm_new_nullWhenInvalidTransitionTerminator", 102);
+  run_test(test_fsm_init_falseWhenInvalidTransitionTerminator, "test_fsm_init_falseWhenInvalidTransitionTerminator", 122);
+  run_test(test_fsm_new_nullWhenEmptyTransition, "test_fsm_new_nullWhenEmptyTransition", 142);
+  run_test(test_fsm_init_falseWhenEmptyTransition, "test_fsm_init_falseWhenEmptyTransition", 162);
+  run_test(test_fsm_new_nullWhenInvalidOriginState, "test_fsm_new_nullWhenInvalidOriginState", 179);
+  run_test(test_fsm_init_falseWhenInvalidOriginState, "test_fsm_init_falseWhenInvalidOriginState", 212);
+  run_test(test_fsm_new_nullWhenInvalidDestinationState, "test_fsm_new_nullWhenInvalidDestinationState", 244);
+  run_test(test_fsm_init_falseWhenInvalidDestinationState, "test_fsm_init_falseWhenInvalidDestinationState", 277);
+  run_test(test_fsm_new_nonNullWhenNullTransitionCondition, "test_fsm_new_nonNullWhenNullTransitionCondition", 306);
+  run_test(test_fsm_init_trueWhenNullTransitionCondition, "test_fsm_init_trueWhenNullTransitionCondition", 330);
+  run_test(test_fsm_new_validInitialState, "test_fsm_new_validInitialState", 349);
+  run_test(test_fsm_init_validInitialState, "test_fsm_init_validInitialState", 371);
+  run_test(test_fsm_fire_validTransitionNoCondition, "test_fsm_fire_validTransitionNoCondition", 392);
+  run_test(test_fsm_fire_validTransitionNoOutput, "test_fsm_fire_validTransitionNoOutput", 418);
+  run_test(test_fsm_fire_validTransitionWithOutput, "test_fsm_fire_validTransitionWithOutput", 444);
+  run_test(test_fsm_fire_noTransition, "test_fsm_fire_noTransition", 471);
+  run_test(test_fsm_fire_endState, "test_fsm_fire_endState", 496);
+  run_test(test_fsm_memory_full, "test_fsm_memory_full", 526);
+  run_test(test_fsm_fire_onlyCheckCurrentGuard, "test_fsm_fire_onlyCheckCurrentGuard", 546);
+  run_test(test_fsm_concurrent, "test_fsm_concurrent", 576);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();

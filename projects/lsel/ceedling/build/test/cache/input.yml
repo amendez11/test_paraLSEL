@@ -26,7 +26,7 @@
   - "+:test/**"
   - "-:test/support"
   :source:
-  - "../common/src/**"
+  - "../common/src/fsm.c"
   - "../common/include/**"
   :support:
   - test/support
@@ -329,6 +329,7 @@
   :gcovr:
     :html_medium_threshold: 75
     :html_high_threshold: 90
+    :report_include: "^../common/src/fsm.c"
 :module_generator:
   :project_root: "./"
   :source_root: src/

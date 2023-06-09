@@ -18,9 +18,9 @@ struct fsm_t {
   fsm_trans_t* tt;
 };
 
-fsm_t* fsm_new (fsm_trans_t* tt);
-void fsm_init (fsm_t* f, fsm_trans_t* tt);
-void fsm_fire (fsm_t* f);
+fsm_t* fsm_new (fsm_trans_t* tt, size_t n_transitions, size_t n_states);
+int fsm_init (fsm_t* f, fsm_trans_t* tt, size_t n_transitions, size_t n_states);
+int fsm_fire (fsm_t* f);
 void fsm_destroy (fsm_t* f);
 
 #ifdef __GNUC__
