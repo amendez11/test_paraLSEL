@@ -9,8 +9,7 @@ fsm_new (fsm_trans_t* tt)
   return f;
 }
 
-/**
-*/
+
 void
 fsm_init (fsm_t* f, fsm_trans_t* tt)
 {
