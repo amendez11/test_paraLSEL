@@ -9,11 +9,14 @@ fsm_new (fsm_trans_t* tt)
   return f;
 }
 
+/**
+*/
 void
 fsm_init (fsm_t* f, fsm_trans_t* tt)
 {
   f->tt = tt;
   f->current_state = tt[0].orig_state;
+  
 }
 
 void
