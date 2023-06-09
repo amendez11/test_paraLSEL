@@ -1,0 +1,103 @@
+\hypertarget{test__fsm_8c}{}\doxysection{ceedling/test/test\+\_\+fsm.c File Reference}
+\label{test__fsm_8c}\index{ceedling/test/test\_fsm.c@{ceedling/test/test\_fsm.c}}
+
+
+Tests for fsm.\+h module.  
+
+
+{\ttfamily \#include \char`\"{}unity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fsm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mock\+\_\+test\+\_\+fsm.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{test__fsm_8c_a95c834d6178047ce9e1bce7cbfea2836}{set\+Up}} (void)
+\item 
+void \mbox{\hyperlink{test__fsm_8c_a9909011e5fea0c018842eec4d93d0662}{tear\+Down}} (void)
+\item 
+void \mbox{\hyperlink{test__fsm_8c_aa253130a9d838513b588db466f3ff48f}{test\+\_\+fsm\+\_\+new\+\_\+null\+When\+Null\+Transition}} (void)
+\begin{DoxyCompactList}\small\item\em Comprueba que la funcion de fsm\+\_\+new devuelve NULL si la tabla de transiciones es NULL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test__fsm_8c_ad2bf2cf897e07f872fac3e187fb25b5d}{test\+\_\+fsm\+\_\+null\+When\+Empty\+Transition}} (void)
+\item 
+void \mbox{\hyperlink{test__fsm_8c_a0eaaa98f6434b116073fcba2bf5f1b5f}{test\+\_\+fsm\+\_\+valid\+Transition\+No\+Output}} (void)
+\item 
+void \mbox{\hyperlink{test__fsm_8c_a064eb12d0266235062e3ff9a155b93fa}{test\+\_\+fsm\+\_\+valid\+Transition\+With\+Output}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Tests for fsm.\+h module. 
+
+\begin{DoxyAuthor}{Author}
+Andres Alvarez Mendez 
+
+Oier Lauzirika Zarrabeitia 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/04-\/24
+\end{DoxyDate}
+
+\begin{DoxyEnumerate}
+\item La transición inválida final es \{-\/1, NULL, -\/1, NULL\}
+\item Cualquier otra transición debe tener un estado válido de entrada y salida
+\item Las funciones de guarda y actualización pueden ser NULL
+\item Puede haber varias máquinas de estados simultáneamente sin que afecte una a otra si no tienen conexión externa
+\item Si hay datos erróneos no debe reservar la memoria
+\item Si falla en la reserva, devuelve NULL
+\item Si La funcion de inicialización falla o hay datos erróneos, devuelve false
+\item La memoria pasada no es NULL (para la estática)
+\item La tabla de transiciones no es NULL
+\item Todos los estados son naturales e inferiores al estado máximo
+\item El estado inicial es el estado de origen de la primera transición
+\item Solo se comprueban las funciones de guarda de las transiciones con estado de origen igual al de la máquina de estados
+\item Si para una transición a comprobar tiene una función de guarda NULL, se cumple siempre
+\item Si para una transición a comprobar tiene una función de guarda, se ejecuta la función y si devuelve distinto de 0, se cumple.
+\item Si se cumple, se cambia el estado actual al de destino, no se comprueban más transiciones y se ejecuta la función de actualización, si es distinto de NULL y devuelve 1
+\item Si ninguna transición tiene un estado de origen coincidente con el estado actual, la función de comprobación de transiciones devuelve -\/1.
+\item Si hay transiciones pero no se cumplen las condiciones, devuelve 0 
+\end{DoxyEnumerate}
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{test__fsm_8c_a95c834d6178047ce9e1bce7cbfea2836}\label{test__fsm_8c_a95c834d6178047ce9e1bce7cbfea2836}} 
+\index{test\_fsm.c@{test\_fsm.c}!setUp@{setUp}}
+\index{setUp@{setUp}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{setUp()}{setUp()}}
+{\footnotesize\ttfamily void set\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__fsm_8c_a9909011e5fea0c018842eec4d93d0662}\label{test__fsm_8c_a9909011e5fea0c018842eec4d93d0662}} 
+\index{test\_fsm.c@{test\_fsm.c}!tearDown@{tearDown}}
+\index{tearDown@{tearDown}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{tearDown()}{tearDown()}}
+{\footnotesize\ttfamily void tear\+Down (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__fsm_8c_aa253130a9d838513b588db466f3ff48f}\label{test__fsm_8c_aa253130a9d838513b588db466f3ff48f}} 
+\index{test\_fsm.c@{test\_fsm.c}!test\_fsm\_new\_nullWhenNullTransition@{test\_fsm\_new\_nullWhenNullTransition}}
+\index{test\_fsm\_new\_nullWhenNullTransition@{test\_fsm\_new\_nullWhenNullTransition}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{test\_fsm\_new\_nullWhenNullTransition()}{test\_fsm\_new\_nullWhenNullTransition()}}
+{\footnotesize\ttfamily void test\+\_\+fsm\+\_\+new\+\_\+null\+When\+Null\+Transition (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Comprueba que la funcion de fsm\+\_\+new devuelve NULL si la tabla de transiciones es NULL. 
+
+Requisitos comprobados\+: 5, 9 \mbox{\Hypertarget{test__fsm_8c_ad2bf2cf897e07f872fac3e187fb25b5d}\label{test__fsm_8c_ad2bf2cf897e07f872fac3e187fb25b5d}} 
+\index{test\_fsm.c@{test\_fsm.c}!test\_fsm\_nullWhenEmptyTransition@{test\_fsm\_nullWhenEmptyTransition}}
+\index{test\_fsm\_nullWhenEmptyTransition@{test\_fsm\_nullWhenEmptyTransition}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{test\_fsm\_nullWhenEmptyTransition()}{test\_fsm\_nullWhenEmptyTransition()}}
+{\footnotesize\ttfamily void test\+\_\+fsm\+\_\+null\+When\+Empty\+Transition (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__fsm_8c_a0eaaa98f6434b116073fcba2bf5f1b5f}\label{test__fsm_8c_a0eaaa98f6434b116073fcba2bf5f1b5f}} 
+\index{test\_fsm.c@{test\_fsm.c}!test\_fsm\_validTransitionNoOutput@{test\_fsm\_validTransitionNoOutput}}
+\index{test\_fsm\_validTransitionNoOutput@{test\_fsm\_validTransitionNoOutput}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{test\_fsm\_validTransitionNoOutput()}{test\_fsm\_validTransitionNoOutput()}}
+{\footnotesize\ttfamily void test\+\_\+fsm\+\_\+valid\+Transition\+No\+Output (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__fsm_8c_a064eb12d0266235062e3ff9a155b93fa}\label{test__fsm_8c_a064eb12d0266235062e3ff9a155b93fa}} 
+\index{test\_fsm.c@{test\_fsm.c}!test\_fsm\_validTransitionWithOutput@{test\_fsm\_validTransitionWithOutput}}
+\index{test\_fsm\_validTransitionWithOutput@{test\_fsm\_validTransitionWithOutput}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{test\_fsm\_validTransitionWithOutput()}{test\_fsm\_validTransitionWithOutput()}}
+{\footnotesize\ttfamily void test\+\_\+fsm\+\_\+valid\+Transition\+With\+Output (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

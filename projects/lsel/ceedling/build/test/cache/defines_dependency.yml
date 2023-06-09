@@ -1,0 +1,5 @@
+---
+build/test/mocks/mock_test_fsm.c:
+- TEST
+"../common/src/fsm.c":
+- TEST
